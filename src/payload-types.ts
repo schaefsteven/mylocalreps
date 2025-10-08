@@ -199,7 +199,6 @@ export interface Office {
     hasNextPage?: boolean;
     totalDocs?: number;
   };
-  fullTitle?: string | null;
   updatedAt: string;
   createdAt: string;
 }
@@ -352,7 +351,6 @@ export interface OfficesSelect<T extends boolean = true> {
   title?: T;
   currentHolders?: T;
   jurisdiction?: T;
-  fullTitle?: T;
   updatedAt?: T;
   createdAt?: T;
 }
