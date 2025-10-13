@@ -22,6 +22,7 @@
     "@payloadcms/next": "3.59.1",
     "@payloadcms/payload-cloud": "3.59.1",
     "@payloadcms/richtext-lexical": "3.59.1",
+    "@payloadcms/sdk": "^3.59.1",
     "@payloadcms/ui": "3.59.1",
     "cross-env": "^7.0.3",
     "dotenv": "16.4.7",

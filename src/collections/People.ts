@@ -5,6 +5,9 @@ export const People: CollectionConfig = {
   admin: {
     useAsTitle: 'lastName',
   },
+  access: {
+    read: () => true,
+  },
   fields: [
     {
       name: 'firstName',
