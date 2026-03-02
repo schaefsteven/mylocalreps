@@ -1,6 +1,7 @@
 // storage-adapter-import-placeholder
 import { mongooseAdapter } from '@payloadcms/db-mongodb'
 import { payloadCloudPlugin } from '@payloadcms/payload-cloud'
+import { importExportPlugin } from '@payloadcms/plugin-import-export'
 import { lexicalEditor } from '@payloadcms/richtext-lexical'
 import path from 'path'
 import { buildConfig } from 'payload'
@@ -12,6 +13,7 @@ import { Media } from './collections/Media'
 import { People } from './collections/People'
 import { Offices } from './collections/Offices'
 import { Jurisdictions } from './collections/Jurisdictions'
+import { AddressLists } from './collections/AddressLists'
 
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
@@ -23,7 +25,7 @@ export default buildConfig({
       baseDir: path.resolve(dirname),
     },
   },
-  collections: [Users, Media, People, Offices, Jurisdictions],
+  collections: [Users, Media, People, Offices, Jurisdictions, AddressLists],
   editor: lexicalEditor(),
   secret: process.env.PAYLOAD_SECRET || '',
   typescript: {
@@ -35,6 +37,6 @@ export default buildConfig({
   sharp,
   plugins: [
     payloadCloudPlugin(),
-    // storage-adapter-placeholder
+    importExportPlugin({}),
   ],
 })

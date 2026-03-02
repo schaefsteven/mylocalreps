@@ -15,12 +15,10 @@ export default async function HomePage() {
     depth: 2,
   })
 
-  console.log(offices)
-
   return (
     <div className="home">
       <div className="content">
-        <h1>My Local Reps</h1>
+          <h1>My Local Reps</h1>
         {offices.docs.map((doc, key) => (
           <div key={key}>
             <h2>{doc.title}</h2>
