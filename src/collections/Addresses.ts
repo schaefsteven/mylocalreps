@@ -1,22 +1,22 @@
 import type { CollectionConfig } from 'payload'
 
-export const AddressLists: CollectionConfig = {
-  slug: 'address-lists',
+export const Addresses: CollectionConfig = {
+  slug: 'addresses',
   admin: {
-    useAsTitle: 'title',
+    useAsTitle: 'HouseNumber',
   },
   access: {
     read: () => true,
   },
   fields: [
     {
-      name: 'title',
+      name: 'HouseNumber',
       type: 'text',
       required: true,
     },
     {
-      name: 'addresses',
-      type: 'json',
+      name: 'StreetName',
+      type: 'text',
       required: true,
     },
   ],

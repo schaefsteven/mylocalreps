@@ -72,7 +72,7 @@ export interface Config {
     people: Person;
     offices: Office;
     jurisdictions: Jurisdiction;
-    'address-lists': AddressList;
+    addresses: Address;
     exports: Export;
     imports: Import;
     'payload-kv': PayloadKv;
@@ -95,7 +95,7 @@ export interface Config {
     people: PeopleSelect<false> | PeopleSelect<true>;
     offices: OfficesSelect<false> | OfficesSelect<true>;
     jurisdictions: JurisdictionsSelect<false> | JurisdictionsSelect<true>;
-    'address-lists': AddressListsSelect<false> | AddressListsSelect<true>;
+    addresses: AddressesSelect<false> | AddressesSelect<true>;
     exports: ExportsSelect<false> | ExportsSelect<true>;
     imports: ImportsSelect<false> | ImportsSelect<true>;
     'payload-kv': PayloadKvSelect<false> | PayloadKvSelect<true>;
@@ -244,20 +244,12 @@ export interface Jurisdiction {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "address-lists".
+ * via the `definition` "addresses".
  */
-export interface AddressList {
+export interface Address {
   id: string;
-  title: string;
-  addresses:
-    | {
-        [k: string]: unknown;
-      }
-    | unknown[]
-    | string
-    | number
-    | boolean
-    | null;
+  HouseNumber: string;
+  StreetName: string;
   updatedAt: string;
   createdAt: string;
 }
@@ -472,8 +464,8 @@ export interface PayloadLockedDocument {
         value: string | Jurisdiction;
       } | null)
     | ({
-        relationTo: 'address-lists';
-        value: string | AddressList;
+        relationTo: 'addresses';
+        value: string | Address;
       } | null);
   globalSlug?: string | null;
   user: {
@@ -593,11 +585,11 @@ export interface JurisdictionsSelect<T extends boolean = true> {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "address-lists_select".
+ * via the `definition` "addresses_select".
  */
-export interface AddressListsSelect<T extends boolean = true> {
-  title?: T;
-  addresses?: T;
+export interface AddressesSelect<T extends boolean = true> {
+  HouseNumber?: T;
+  StreetName?: T;
   updatedAt?: T;
   createdAt?: T;
 }
@@ -749,15 +741,7 @@ export interface TaskCreateCollectionExport {
     id: string;
     name: string;
     batchSize?: number | null;
-    collectionSlug:
-      | 'users'
-      | 'media'
-      | 'people'
-      | 'offices'
-      | 'jurisdictions'
-      | 'address-lists'
-      | 'exports'
-      | 'imports';
+    collectionSlug: 'users' | 'media' | 'people' | 'offices' | 'jurisdictions' | 'addresses' | 'exports' | 'imports';
     drafts?: ('yes' | 'no') | null;
     exportCollection: string;
     fields?: string[] | null;

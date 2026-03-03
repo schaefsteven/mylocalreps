@@ -13,7 +13,7 @@ import { Media } from './collections/Media'
 import { People } from './collections/People'
 import { Offices } from './collections/Offices'
 import { Jurisdictions } from './collections/Jurisdictions'
-import { AddressLists } from './collections/AddressLists'
+import { Addresses } from './collections/Addresses'
 
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
@@ -25,7 +25,7 @@ export default buildConfig({
       baseDir: path.resolve(dirname),
     },
   },
-  collections: [Users, Media, People, Offices, Jurisdictions, AddressLists],
+  collections: [Users, Media, People, Offices, Jurisdictions, Addresses],
   editor: lexicalEditor(),
   secret: process.env.PAYLOAD_SECRET || '',
   typescript: {
