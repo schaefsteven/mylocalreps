@@ -248,8 +248,25 @@ export interface Jurisdiction {
  */
 export interface Address {
   id: string;
-  HouseNumber: string;
-  StreetName: string;
+  type: string;
+  properties:
+    | {
+        [k: string]: unknown;
+      }
+    | unknown[]
+    | string
+    | number
+    | boolean
+    | null;
+  geometry:
+    | {
+        [k: string]: unknown;
+      }
+    | unknown[]
+    | string
+    | number
+    | boolean
+    | null;
   updatedAt: string;
   createdAt: string;
 }
@@ -588,8 +605,9 @@ export interface JurisdictionsSelect<T extends boolean = true> {
  * via the `definition` "addresses_select".
  */
 export interface AddressesSelect<T extends boolean = true> {
-  HouseNumber?: T;
-  StreetName?: T;
+  type?: T;
+  properties?: T;
+  geometry?: T;
   updatedAt?: T;
   createdAt?: T;
 }

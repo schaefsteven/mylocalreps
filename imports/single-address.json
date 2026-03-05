@@ -1,0 +1,41 @@
+[
+{
+  "type": "Feature",
+  "properties": {
+    "FID": 1,
+    "OBJECTID": 1238,
+    "HouseNumbe": "53724",
+    "HouseSuffi": " ",
+    "PreDirecti": " ",
+    "PreType": " ",
+    "StreetName": "TERRE VERDE HILLS",
+    "PostType": "CT",
+    "PostTypeSu": " ",
+    "PostDirect": " ",
+    "Venue": "SOUTH BEND",
+    "Zip": "46628",
+    "UNIT": " ",
+    "PostalCity": "SOUTH BEND",
+    "JOIN_ID": 0,
+    "FullStreet": "53724 TERRE VERDE HILLS CT",
+    "Alias": " ",
+    "created_us": "JCARLSON",
+    "created_da": "2018-10-12T00:00:00Z",
+    "UnitA": " ",
+    "UID": "SSAP11238",
+    "State": "IN",
+    "created__1": " ",
+    "created__2": null,
+    "last_edite": "BKINGSTON",
+    "last_edi_1": "2024-03-13T00:00:00Z",
+    "CNTYName": "SJC"
+  },
+  "geometry": {
+    "type": "Point",
+    "coordinates": [
+      -86.358163210512998,
+      41.712096087787103
+    ]
+  }
+}
+]

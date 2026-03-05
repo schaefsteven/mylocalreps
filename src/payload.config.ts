@@ -37,6 +37,25 @@ export default buildConfig({
   sharp,
   plugins: [
     payloadCloudPlugin(),
-    importExportPlugin({}),
+    importExportPlugin({
+      collections: [
+        {
+          slug: 'addresses',
+          import: {
+            disableJobsQueue: true,
+          },
+        },
+      ],
+    }),
   ],
+  jobs: {
+    jobsCollectionOverrides: ({ defaultJobsCollection }) => {
+      if (!defaultJobsCollection.admin) {
+        defaultJobsCollection.admin = {}
+      }
+
+      defaultJobsCollection.admin.hidden = false
+      return defaultJobsCollection
+    },
+  },
 })

@@ -3,20 +3,25 @@ import type { CollectionConfig } from 'payload'
 export const Addresses: CollectionConfig = {
   slug: 'addresses',
   admin: {
-    useAsTitle: 'HouseNumber',
+    //useAsTitle: 'type',
   },
   access: {
     read: () => true,
   },
   fields: [
     {
-      name: 'HouseNumber',
+      name: 'type',
       type: 'text',
       required: true,
     },
     {
-      name: 'StreetName',
-      type: 'text',
+      name: 'properties',
+      type: 'json',
+      required: true,
+    },
+    {
+      name: 'geometry',
+      type: 'json',
       required: true,
     },
   ],
