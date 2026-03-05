@@ -44,8 +44,8 @@ export default function HomePage() {
           depth: 2,
           limit: 10,
           where: {
-            'properties.HouseNumbe': {
-              equals: debouncedSearchTerm,
+            'properties.FullStreet': {
+              like: debouncedSearchTerm,
             },
           },
         })
@@ -62,10 +62,11 @@ export default function HomePage() {
   }, [debouncedSearchTerm])
   
   const readableAddresses = addresses.map((doc) => (
-    `${doc.properties.HouseNumbe} \
-     ${doc.properties.StreetName} \
-     ${doc.properties.PostType}, \
-     ${doc.properties.Venue} \
+    `${doc.properties.FullStreet}, \
+     ${doc.properties.Venue}, \
+     ${doc.properties.State} \
+     ${doc.properties.Zip} | \
+     ${doc.geometry.coordinates} \
      `
   ))
 
