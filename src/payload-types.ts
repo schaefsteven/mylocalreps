@@ -73,6 +73,7 @@ export interface Config {
     offices: Office;
     jurisdictions: Jurisdiction;
     addresses: Address;
+    test: Test;
     exports: Export;
     imports: Import;
     'payload-kv': PayloadKv;
@@ -96,6 +97,7 @@ export interface Config {
     offices: OfficesSelect<false> | OfficesSelect<true>;
     jurisdictions: JurisdictionsSelect<false> | JurisdictionsSelect<true>;
     addresses: AddressesSelect<false> | AddressesSelect<true>;
+    test: TestSelect<false> | TestSelect<true>;
     exports: ExportsSelect<false> | ExportsSelect<true>;
     imports: ImportsSelect<false> | ImportsSelect<true>;
     'payload-kv': PayloadKvSelect<false> | PayloadKvSelect<true>;
@@ -267,6 +269,16 @@ export interface Address {
     | number
     | boolean
     | null;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "test".
+ */
+export interface Test {
+  id: string;
+  name: string;
   updatedAt: string;
   createdAt: string;
 }
@@ -483,6 +495,10 @@ export interface PayloadLockedDocument {
     | ({
         relationTo: 'addresses';
         value: string | Address;
+      } | null)
+    | ({
+        relationTo: 'test';
+        value: string | Test;
       } | null);
   globalSlug?: string | null;
   user: {
@@ -608,6 +624,16 @@ export interface AddressesSelect<T extends boolean = true> {
   type?: T;
   properties?: T;
   geometry?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "test_select".
+ */
+export interface TestSelect<T extends boolean = true> {
+  name?: T;
+  geoJSON?: T;
   updatedAt?: T;
   createdAt?: T;
 }
@@ -759,7 +785,16 @@ export interface TaskCreateCollectionExport {
     id: string;
     name: string;
     batchSize?: number | null;
-    collectionSlug: 'users' | 'media' | 'people' | 'offices' | 'jurisdictions' | 'addresses' | 'exports' | 'imports';
+    collectionSlug:
+      | 'users'
+      | 'media'
+      | 'people'
+      | 'offices'
+      | 'jurisdictions'
+      | 'addresses'
+      | 'test'
+      | 'exports'
+      | 'imports';
     drafts?: ('yes' | 'no') | null;
     exportCollection: string;
     fields?: string[] | null;
